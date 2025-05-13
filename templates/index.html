@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potato Leaf Health Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Potato Leaf Disease Detection System</h1>
+        
+        <form method="post" enctype="multipart/form-data" id="upload-form">
+            <div class="upload-box">
+                <input type="file" name="file" id="file" accept="image/*" required>
+                <label for="file">Choose image...</label>
+                <span id="file-name">No file chosen</span>
+            </div>
+            
+            <div id="preview-section" class="hidden">
+                <h3>Image Preview:</h3>
+                <div class="image-preview">
+                    <img id="image-preview" src="#" alt="Your image will appear here"/>
+                </div>
+                <button type="submit">Analyze Health</button>
+            </div>
+        </form>
+        
+        {% if filename and result %}
+            <div class="results-wrapper">
+                <div class="image-column">
+                    <h2>Leaf Image</h2>
+                    <div class="image-container">
+                        <img src="{{ url_for('static', filename='uploads/' + filename) }}" 
+                             alt="Uploaded Image">
+                    </div>
+                </div>
+                
+                <div class="results-column">
+                    <h2>Analysis Results</h2>
+                    <div class="prediction">
+                        <h3>Diagnosis:</h3>
+                        <div class="prediction-card main-prediction">
+                            <span class="class-name">{{ result.class }}</span>
+                            <span class="confidence">{{ result.confidence }} confidence</span>
+                        </div>
+                        
+                        <h4>All possibilities:</h4>
+                        <div class="all-predictions">
+                            {% for name, score in result.all_predictions %}
+                            <div class="prediction-card">
+                                <span class="class-name">{{ name }}</span>
+                                <span class="confidence">{{ "%.2f"|format(score*100) }}%</span>
+                                <div class="confidence-bar" style="width: {{ score*100 }}%"></div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    <script>
+    document.getElementById('file').addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        const previewSection = document.getElementById('preview-section');
+        const fileNameDisplay = document.getElementById('file-name');
+        const imagePreview = document.getElementById('image-preview');
+
+        // Clear previous results
+        const resultsWrapper = document.querySelector('.results-wrapper');
+        if (resultsWrapper) resultsWrapper.remove();
+
+        if (file) {
+            fileNameDisplay.textContent = file.name;
+            previewSection.classList.remove('hidden');
+
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                imagePreview.src = event.target.result;
+            };
+            reader.readAsDataURL(file);
+        } else {
+            fileNameDisplay.textContent = "No file chosen";
+            previewSection.classList.add('hidden');
+        }
+    });
+</script>
+
+</body>
+</html>

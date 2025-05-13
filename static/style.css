@@ -1,0 +1,431 @@
+/* body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #65ef9a;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+}
+
+h2, h3, h4 {
+    color: #2c3e50;
+}
+
+#upload-form {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.upload-box {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.upload-box input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.upload-box label {
+    display: inline-block;
+    padding: 12px 20px;
+    background: #3498db;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.upload-box label:hover {
+    background: #2980b9;
+}
+
+#file-name {
+    margin-left: 15px;
+    color: #7f8c8d;
+}
+
+#preview-section {
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+.image-preview {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.image-preview img {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button[type="submit"]:hover {
+    background: #219653;
+}
+
+.results-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.image-column, .results-column {
+    flex: 1;
+    min-width: 300px;
+}
+
+.image-column h2, .results-column h2 {
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ecf0f1;
+}
+
+.image-container {
+    text-align: center;
+}
+
+.image-container img {
+    max-width: 100%;
+    max-height: 400px;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.prediction {
+    margin-top: 20px;
+}
+
+.prediction-card {
+    background: white;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #3498db;
+}
+
+.main-prediction {
+    border-left: 4px solid #27ae60;
+    background: #f8f9fa;
+}
+
+.class-name {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.confidence {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+.all-predictions {
+    margin-top: 20px;
+}
+
+.confidence-bar {
+    height: 5px;
+    background: #3498db;
+    border-radius: 3px;
+    margin-top: 8px;
+}
+
+@media (max-width: 768px) {
+    .results-wrapper {
+        flex-direction: column;
+    }
+    
+    .image-column, .results-column {
+        flex: 100%;
+    }
+} */
+
+/* General Styles - Green Theme */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f7f0; /* Light green background */
+    margin: 0;
+    padding: 0;
+    color: #2d3a2d; /* Dark green text */
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #1a3e1a; /* Deep forest green */
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+}
+
+h2, h3, h4 {
+    color: #1a3e1a;
+}
+
+/* Upload Form Styles */
+#upload-form {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 50, 0, 0.1); /* Green tinted shadow */
+    margin-bottom: 30px;
+    border: 1px solid #d0e7d0; /* Light green border */
+}
+
+.upload-box {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.upload-box input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.upload-box label {
+    display: inline-block;
+    padding: 12px 20px;
+    background: #3a7d3a; /* Medium green */
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+
+.upload-box label:hover {
+    background: #2a5d2a; /* Darker green */
+    transform: translateY(-2px);
+}
+
+#file-name {
+    margin-left: 15px;
+    color: #5a7d5a; /* Muted green */
+}
+
+/* Preview Section */
+#preview-section {
+    margin-top: 20px;
+    transition: all 0.5s ease;
+}
+
+.hidden {
+    display: none;
+}
+
+.image-preview {
+    text-align: center;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #f8fcf8; /* Very light green */
+    border-radius: 8px;
+    border: 1px dashed #b8d8b8; /* Light green dashed border */
+}
+
+.image-preview img {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0, 30, 0, 0.15); /* Green tinted shadow */
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: #4caf50; /* Vibrant green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+button[type="submit"]:hover {
+    background: #3d8b40; /* Darker vibrant green */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 50, 0, 0.2);
+}
+
+/* Results Layout */
+.results-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 50, 0, 0.1);
+    border: 1px solid #d0e7d0;
+}
+
+.image-column, .results-column {
+    flex: 1;
+    min-width: 300px;
+}
+
+.image-column h2, .results-column h2 {
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e0f0e0; /* Light green border */
+}
+
+.image-container {
+    text-align: center;
+    padding: 15px;
+    background-color: #f8fcf8;
+    border-radius: 8px;
+    border: 1px solid #d0e7d0;
+}
+
+.image-container img {
+    max-width: 100%;
+    max-height: 400px;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0, 30, 0, 0.15);
+}
+
+/* Prediction Cards */
+.prediction {
+    margin-top: 20px;
+}
+
+.prediction-card {
+    background: #f8fcf8; /* Very light green */
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 20, 0, 0.08);
+    border-left: 4px solid #6b9e6b; /* Medium green */
+    transition: all 0.3s;
+}
+
+.prediction-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 8px rgba(0, 30, 0, 0.1);
+}
+
+.main-prediction {
+    border-left: 4px solid #4caf50; /* Vibrant green */
+    background: #f0f7f0; /* Light green */
+}
+
+.class-name {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+    color: #1a3e1a;
+}
+
+.confidence {
+    color: #5a7d5a;
+    font-size: 0.9rem;
+}
+
+.all-predictions {
+    margin-top: 20px;
+}
+
+.confidence-bar {
+    height: 5px;
+    background: linear-gradient(90deg, #a5d6a7, #4caf50); /* Green gradient */
+    border-radius: 3px;
+    margin-top: 8px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .results-wrapper {
+        flex-direction: column;
+    }
+    
+    .image-column, .results-column {
+        flex: 100%;
+    }
+    
+    .container {
+        padding: 15px;
+    }
+    
+    #upload-form {
+        padding: 20px;
+    }
+}
+
+/* Additional Green Accents */
+.prediction h3 {
+    color: #2a5d2a;
+    margin-bottom: 15px;
+}
+
+.prediction h4 {
+    color: #3a7d3a;
+    margin: 20px 0 10px 0;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
